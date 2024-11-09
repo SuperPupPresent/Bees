@@ -64,6 +64,7 @@ public class HiveManager : MonoBehaviour
                 {
                    // Debug.Log("Snapped!");
                     Cursor.position = closestHive.transform.position;
+                    Cursor.gameObject.GetComponent<CursorMovement>().selectedHive = closestHive;
                 }
             }
 
@@ -87,6 +88,7 @@ public class HiveManager : MonoBehaviour
                 {
                     // Debug.Log("Snapped!");
                     Cursor.position = closestHive.transform.position;
+                    Cursor.gameObject.GetComponent<CursorMovement>().selectedHive = closestHive;
                 }
             }
 
@@ -106,10 +108,33 @@ public class HiveManager : MonoBehaviour
                     }
                 }
 
-                if (closestHive != null)
+                for (int i = 0; i < pOneHives.Count; i++)
+                {
+                    float currentDistance = getDistance(Cursor.position, pOneHives[i].transform.position);
+                    //  Debug.Log(currentDistance);
+                    if (closestDistance > currentDistance || closestHive == null)
+                    {
+                        closestHive = pOneHives[i];
+                        closestDistance = currentDistance;
+                    }
+                }
+
+                for (int i = 0; i < neutralHives.Count; i++)
+                {
+                    float currentDistance = getDistance(Cursor.position, neutralHives[i].transform.position);
+                    //  Debug.Log(currentDistance);
+                    if (closestDistance > currentDistance || closestHive == null)
+                    {
+                        closestHive = neutralHives[i];
+                        closestDistance = currentDistance;
+                    }
+                }
+
+                if (closestHive != null && closestHive != Cursor.gameObject.GetComponent<CursorMovement>().selectedHive)
                 {
                     // Debug.Log("Snapped!");
                     Cursor.position = closestHive.transform.position;
+                    Cursor.gameObject.GetComponent<CursorMovement>().focusedHive = closestHive;
                 }
             }
             
