@@ -190,10 +190,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4754516297364823854, guid: a196d53f051d949469d6997eb9a13589, type: 3}
       insertIndex: -1
       addedObject: {fileID: 781698048}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5531189697017031465, guid: a196d53f051d949469d6997eb9a13589, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1391386192}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a196d53f051d949469d6997eb9a13589, type: 3}
 --- !u!4 &150770259 stripped
 Transform:
@@ -719,50 +716,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!1 &1391386190 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5531189697017031465, guid: a196d53f051d949469d6997eb9a13589, type: 3}
-  m_PrefabInstance: {fileID: 150770258}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1391386191 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6642677886184895213, guid: a196d53f051d949469d6997eb9a13589, type: 3}
-  m_PrefabInstance: {fileID: 150770258}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1391386190}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a469aac1d4d3e0243807091c5cedafe8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1391386192
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1391386190}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66b4d981a5f9fc946a8b2134473674ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 90ce04ecc90ae8e45b1bfb26570a828c, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1391386191}
-        m_TargetAssemblyTypeName: HiveManager, Assembly-CSharp
-        m_MethodName: snapCursorToHive
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &1548184306
 GameObject:
   m_ObjectHideFlags: 0
