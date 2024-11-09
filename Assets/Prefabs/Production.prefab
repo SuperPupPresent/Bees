@@ -44,11 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f7c7c4daa72cf042ab854e044794ac2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  productionWaitTime: 0
-  upgradeWaitTime: 0
-  beeUpgradeAmount: 0
+  tree: {fileID: 0}
   sprites:
-  - {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: -1362745770, guid: a9b5608fd3df59b478d3b9ccf9ef43b2, type: 3}
+  - {fileID: 1537321824, guid: a9b5608fd3df59b478d3b9ccf9ef43b2, type: 3}
+  - {fileID: -1742443170, guid: a9b5608fd3df59b478d3b9ccf9ef43b2, type: 3}
+  - {fileID: -129997120, guid: a9b5608fd3df59b478d3b9ccf9ef43b2, type: 3}

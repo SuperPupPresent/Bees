@@ -15,6 +15,7 @@ public class TreeHive : MonoBehaviour
     public int currentBeeCount;
     public int currentBeeCapacity;
     public BeeColor currentBeeColor; //Who owns the hive
+    [SerializeField] Sprite[] sprites; //All possible tower sprites stored in a list
 
     private void Awake()
     {
@@ -68,6 +69,15 @@ public class TreeHive : MonoBehaviour
         else
         {
             return;
+        }
+    }
+
+    public void changeTreeSprite(int hiveLevel)
+    {
+        if(treeInfo.treeState == TreeState.PRODUCTION)
+        {
+            //Debug.Log((int)currentBeeColor + " Current bee color");
+            spriteRenderer.sprite = sprites[(int)currentBeeColor * 4 + hiveLevel];
         }
     }
 }

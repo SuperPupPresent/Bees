@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu]
 public class TreeInfoSO : ScriptableObject
 {
+    public BeeColor beeColor;
     public int beeCapacity;
     public int startingBeeCount;
     public int hiveLevel;

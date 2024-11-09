@@ -133,7 +133,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6142919953891397806, guid: 4d9b6e0e0cbb0124ead2f1082f2a067b, type: 3}
       propertyPath: currentBeeColor
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7584055549721549125, guid: 4d9b6e0e0cbb0124ead2f1082f2a067b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -666,6 +666,10 @@ PrefabInstance:
       propertyPath: production
       value: 
       objectReference: {fileID: 3200800264570435501, guid: b59895871a0b3634a8f41d1f0fcbcb5b, type: 3}
+    - target: {fileID: 6142919953891397806, guid: 4d9b6e0e0cbb0124ead2f1082f2a067b, type: 3}
+      propertyPath: currentBeeColor
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7584055549721549125, guid: 4d9b6e0e0cbb0124ead2f1082f2a067b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.64
