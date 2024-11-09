@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afa144e38cfff8b49bad73c9894f6d7d, type: 3}
   m_Name: OrangeProduction
   m_EditorClassIdentifier: 
-  beeColor: 0
-  beeCapacity: 0
-  startingBeeCount: 0
-  hiveLevel: 0
+  beeColor: 2
+  beeCapacity: 20
+  startingBeeCount: 10
+  hiveLevel: 1
   treeState: 0
-  startingBeeType: 0
+  startingBeeType: 1

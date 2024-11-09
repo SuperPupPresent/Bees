@@ -68,8 +68,8 @@ public class Production : MonoBehaviour
         yield return new WaitForSeconds(upgradeWaitTime);
         updateProductionTime();
         tree.currentBeeCapacity += beeUpgradeAmount;
-        tree.currentHiveLevel++;
         tree.changeTreeSprite(tree.currentHiveLevel);
+        tree.currentHiveLevel++;
         canUpgrade = true;
     }
 
