@@ -5,7 +5,7 @@ using UnityEngine;
 public class Production : MonoBehaviour
 {
     public TreeHive tree;
-    int hiveLevel = 1;
+    int hiveLevel;
     float productionWaitTime = 1.5f;
     int upgradeWaitTime = 2;
     int beeUpgradeAmount = 20;
@@ -21,6 +21,8 @@ public class Production : MonoBehaviour
     void Start()
     {
         tree.spriteRenderer.sprite = sprites[0];
+        hiveLevel = tree.treeInfo.hiveLevel;
+        beeUpgradeAmount *= hiveLevel;
         tree.currentBeeCapacity = beeUpgradeAmount;
         StartCoroutine(produceBees());
     }

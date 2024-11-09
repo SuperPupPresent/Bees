@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afa144e38cfff8b49bad73c9894f6d7d, type: 3}
   m_Name: ProductionTree
   m_EditorClassIdentifier: 
-  beeCapacity: 10
+  beeCapacity: 20
   startingBeeCount: 10
-  treeState: 1
+  hiveLevel: 1
+  treeState: 0
+  startingBeeType: 1

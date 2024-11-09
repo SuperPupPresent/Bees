@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum TreeState
+public enum BeeColor
 {
-    PRODUCTION,
-    ENHANCER,
-    WEAPON
+    Grey,
+    Yellow,
+    Blue,
+    Red,
+    Green
 }

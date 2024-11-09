@@ -1,18 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
-public class Uninhabited : MonoBehaviour
+public class Bee : MonoBehaviour
 {
-    TreeHive tree;
-    float productionWaitTime = 1.5f;
-    Sprite uninhabitedSprite;
-
+    Transform targetPosition;
     // Start is called before the first frame update
     void Start()
     {
-        tree.spriteRenderer.sprite = uninhabitedSprite;
-
+        //transform.position = Vector2.MoveTowards(transform.position, targetPosition.position, 2);
     }
 
     // Update is called once per frame

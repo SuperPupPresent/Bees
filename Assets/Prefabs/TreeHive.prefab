@@ -387,7 +387,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   treeInfo: {fileID: 11400000, guid: 9e697b99d525ea641b22d5d7a319f6c4, type: 2}
+  productionPrefab: {fileID: 3200800264570435501, guid: b59895871a0b3634a8f41d1f0fcbcb5b, type: 3}
+  enhancerPrefab: {fileID: 0}
+  weaponPrefab: {fileID: 0}
   spriteRenderer: {fileID: 3943896273548355513}
   beeCountUI: {fileID: 1363494640107631281}
   currentBeeCount: 0
   currentBeeCapacity: 0
+  currentBeeColor: 1

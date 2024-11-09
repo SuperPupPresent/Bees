@@ -7,5 +7,7 @@ public class TreeInfoSO : ScriptableObject
 {
     public int beeCapacity;
     public int startingBeeCount;
+    public int hiveLevel;
     public TreeState treeState;
+    public BeeType startingBeeType;
 }
