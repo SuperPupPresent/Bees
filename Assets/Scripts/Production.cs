@@ -23,7 +23,7 @@ public class Production : MonoBehaviour
     {
         updateProductionTime();
         canUpgrade = true;
-        tree.spriteRenderer.sprite = sprites[0];
+        //tree.spriteRenderer.sprite = sprites[0];
         //hiveLevel = tree.treeInfo.hiveLevel;
         beeUpgradeAmount *= tree.currentHiveLevel;
         tree.currentBeeCapacity = beeUpgradeAmount;
@@ -68,8 +68,8 @@ public class Production : MonoBehaviour
         yield return new WaitForSeconds(upgradeWaitTime);
         updateProductionTime();
         tree.currentBeeCapacity += beeUpgradeAmount;
-        tree.changeTreeSprite(tree.currentHiveLevel);
         tree.currentHiveLevel++;
+        tree.changeTreeSprite(tree.currentHiveLevel);
         canUpgrade = true;
     }
 

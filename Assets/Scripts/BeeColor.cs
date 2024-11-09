@@ -6,8 +6,8 @@ public enum BeeColor
 {
     Grey,
     Yellow,
+    Orange,
     Blue,
     Red,
-    Green,
-    Orange,
+    Green
 }

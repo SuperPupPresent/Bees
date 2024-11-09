@@ -550,6 +550,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UpgradeMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 2925260004469726552, guid: cb4ae016a6422564d902e5af61fddcde, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3185862337061244030, guid: cb4ae016a6422564d902e5af61fddcde, type: 3}
       propertyPath: hive
       value: 

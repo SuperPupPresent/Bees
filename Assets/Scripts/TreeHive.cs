@@ -34,6 +34,7 @@ public class TreeHive : MonoBehaviour
         currentBeeCount = treeInfo.startingBeeCount;
         currentBeeCapacity = treeInfo.beeCapacity;
         currentTreeState = treeInfo.treeState;
+        changeTreeSprite(currentHiveLevel);
     }
 
     private void Update()
