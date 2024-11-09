@@ -67,6 +67,51 @@ public class HiveManager : MonoBehaviour
                 }
             }
 
+            else if(teamInfo == BeeColor.Orange)
+            {
+                GameObject closestHive = null;
+                float closestDistance = -1f;
+
+                for (int i = 0; i < pTwoHives.Count; i++)
+                {
+                    float currentDistance = getDistance(Cursor.position, pTwoHives[i].transform.position);
+                    //  Debug.Log(currentDistance);
+                    if (closestDistance > currentDistance || closestHive == null)
+                    {
+                        closestHive = pTwoHives[i];
+                        closestDistance = currentDistance;
+                    }
+                }
+
+                if (closestHive != null)
+                {
+                    // Debug.Log("Snapped!");
+                    Cursor.position = closestHive.transform.position;
+                }
+            }
+
+            else
+            {
+                GameObject closestHive = null;
+                float closestDistance = -1f;
+
+                for (int i = 0; i < pTwoHives.Count; i++)
+                {
+                    float currentDistance = getDistance(Cursor.position, pTwoHives[i].transform.position);
+                    //  Debug.Log(currentDistance);
+                    if (closestDistance > currentDistance || closestHive == null)
+                    {
+                        closestHive = pTwoHives[i];
+                        closestDistance = currentDistance;
+                    }
+                }
+
+                if (closestHive != null)
+                {
+                    // Debug.Log("Snapped!");
+                    Cursor.position = closestHive.transform.position;
+                }
+            }
             
         }
     }
