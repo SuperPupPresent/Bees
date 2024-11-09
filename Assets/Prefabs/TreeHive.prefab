@@ -518,16 +518,25 @@ MonoBehaviour:
   currentBeeCount: 0
   currentBeeCapacity: 0
   currentHiveLevel: 0
+  currentTreeState: 0
   currentBeeColor: 1
   sprites:
   - {fileID: -1362745770, guid: a9b5608fd3df59b478d3b9ccf9ef43b2, type: 3}
   - {fileID: 1537321824, guid: a9b5608fd3df59b478d3b9ccf9ef43b2, type: 3}
   - {fileID: -1742443170, guid: a9b5608fd3df59b478d3b9ccf9ef43b2, type: 3}
   - {fileID: -129997120, guid: a9b5608fd3df59b478d3b9ccf9ef43b2, type: 3}
+  - {fileID: 1690197980, guid: 09dfff45f0bca6f48b0b2f4f82ef8c52, type: 3}
   - {fileID: -1857478926, guid: a9b5608fd3df59b478d3b9ccf9ef43b2, type: 3}
   - {fileID: -1416185872, guid: a9b5608fd3df59b478d3b9ccf9ef43b2, type: 3}
   - {fileID: -908132347, guid: a9b5608fd3df59b478d3b9ccf9ef43b2, type: 3}
   - {fileID: 1533917063, guid: a9b5608fd3df59b478d3b9ccf9ef43b2, type: 3}
+  - {fileID: -892299297, guid: 09dfff45f0bca6f48b0b2f4f82ef8c52, type: 3}
+  - {fileID: 1533917063, guid: a9b5608fd3df59b478d3b9ccf9ef43b2, type: 3}
+  - {fileID: -1470479175, guid: a9b5608fd3df59b478d3b9ccf9ef43b2, type: 3}
+  - {fileID: -1618767361, guid: a9b5608fd3df59b478d3b9ccf9ef43b2, type: 3}
+  - {fileID: -1397370015, guid: a9b5608fd3df59b478d3b9ccf9ef43b2, type: 3}
+  - {fileID: -55171684, guid: a9b5608fd3df59b478d3b9ccf9ef43b2, type: 3}
+  - {fileID: 1795089766, guid: 09dfff45f0bca6f48b0b2f4f82ef8c52, type: 3}
   canUpgrade: 0
 --- !u!1001 &706743118676469421
 PrefabInstance:

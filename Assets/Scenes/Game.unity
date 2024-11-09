@@ -702,6 +702,14 @@ PrefabInstance:
       propertyPath: currentBeeColor
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6142919953891397806, guid: 4d9b6e0e0cbb0124ead2f1082f2a067b, type: 3}
+      propertyPath: sprites.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6142919953891397806, guid: 4d9b6e0e0cbb0124ead2f1082f2a067b, type: 3}
+      propertyPath: sprites.Array.data[9]
+      value: 
+      objectReference: {fileID: 1533917063, guid: a9b5608fd3df59b478d3b9ccf9ef43b2, type: 3}
     - target: {fileID: 7584055549721549125, guid: 4d9b6e0e0cbb0124ead2f1082f2a067b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.64
