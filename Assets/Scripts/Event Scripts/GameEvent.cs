@@ -11,7 +11,7 @@ public class GameEvent : ScriptableObject //Acts as the inbetween
 
     public void Raise(Component sender, object data)
     {
-        Debug.Log("Raise has been called");
+        //Debug.Log("Raise has been called");
         for (int i = listeners.Count - 1; i >= 0; i--)
         {
             listeners[i].OnEventRaised(sender, data);

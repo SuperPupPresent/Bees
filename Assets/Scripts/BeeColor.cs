@@ -8,5 +8,5 @@ public enum BeeColor
     Yellow,
     Blue,
     Red,
-    Green
+    Green,
 }
