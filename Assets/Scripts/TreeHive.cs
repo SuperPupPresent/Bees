@@ -17,6 +17,7 @@ public class TreeHive : MonoBehaviour
     public int currentBeeCount;
     public int currentBeeCapacity;
     public int currentHiveLevel;
+    public TreeState currentTreeState;
     public BeeColor currentBeeColor; //Who owns the hive
     [SerializeField] Sprite[] sprites; //All possible tower sprites stored in a list
 
@@ -32,6 +33,7 @@ public class TreeHive : MonoBehaviour
         currentHiveLevel = treeInfo.hiveLevel;
         currentBeeCount = treeInfo.startingBeeCount;
         currentBeeCapacity = treeInfo.beeCapacity;
+        currentTreeState = treeInfo.treeState;
     }
 
     private void Update()
@@ -63,17 +65,17 @@ public class TreeHive : MonoBehaviour
     }
     public void treeStateChanged()
     {
-        if (treeInfo.treeState == TreeState.PRODUCTION)
+        if (currentTreeState == TreeState.PRODUCTION)
         {
             GameObject newProduction = Instantiate(productionPrefab);
             newProduction.transform.parent = transform;
             newProduction.GetComponent<Production>().tree = this;
         }
-        else if (treeInfo.treeState == TreeState.ENHANCER)
+        else if (currentTreeState == TreeState.ENHANCER)
         {
 
         }
-        else if (treeInfo.treeState == TreeState.WEAPON)
+        else if (currentTreeState == TreeState.WEAPON)
         {
 
         }
@@ -85,7 +87,7 @@ public class TreeHive : MonoBehaviour
 
     public void changeTreeSprite(int hiveLevel)
     {
-        if(treeInfo.treeState == TreeState.PRODUCTION)
+        if(currentTreeState == TreeState.PRODUCTION)
         {
             //Debug.Log((int)currentBeeColor + " Current bee color");
             spriteRenderer.sprite = sprites[(int)currentBeeColor * 4 + hiveLevel];
