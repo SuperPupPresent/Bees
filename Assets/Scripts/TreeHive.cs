@@ -7,15 +7,21 @@ using UnityEngine;
 public class TreeHive : MonoBehaviour
 {
     public TreeInfoSO treeInfo;
+
     [SerializeField] GameObject productionPrefab; //prefab holding production script
     [SerializeField] GameObject enhancerPrefab;
     [SerializeField] GameObject weaponPrefab;
+    [SerializeField] GameObject upgradeMenu;
     public SpriteRenderer spriteRenderer;
     [SerializeField] TextMeshPro beeCountUI;
     public int currentBeeCount;
     public int currentBeeCapacity;
+    public int currentHiveLevel;
+    public TreeState currentTreeState;
     public BeeColor currentBeeColor; //Who owns the hive
     [SerializeField] Sprite[] sprites; //All possible tower sprites stored in a list
+
+    public bool canUpgrade = false;
 
     private void Awake()
     {
@@ -23,13 +29,26 @@ public class TreeHive : MonoBehaviour
     }
     void Start()
     {
+        upgradeMenu.SetActive(false);
+        currentHiveLevel = treeInfo.hiveLevel;
         currentBeeCount = treeInfo.startingBeeCount;
         currentBeeCapacity = treeInfo.beeCapacity;
+        currentTreeState = treeInfo.treeState;
     }
 
     private void Update()
     {
         beeCountUI.text = "" + currentBeeCount;
+        if (Input.GetButton("UpgradeMenu")) // && playerIsHovering
+        {
+            upgradeMenu.SetActive(true);
+            canUpgrade = true;
+        }
+        else
+        {
+            upgradeMenu.SetActive(false);
+            canUpgrade = false;
+        }
     }
 
     //Call this function when a bee attacks
@@ -46,23 +65,17 @@ public class TreeHive : MonoBehaviour
     }
     public void treeStateChanged()
     {
-        //if (treeInfo.treeState == TreeState.UNINHABITED)
-        //{
-        //    GameObject newUninhabited = Instantiate(uninhabitedPrefab);
-        //    newUninhabited.transform.parent = transform;
-        //    newUninhabited.GetComponent<Uninhabited>().tree = this;
-        //}
-        if (treeInfo.treeState == TreeState.PRODUCTION)
+        if (currentTreeState == TreeState.PRODUCTION)
         {
             GameObject newProduction = Instantiate(productionPrefab);
             newProduction.transform.parent = transform;
             newProduction.GetComponent<Production>().tree = this;
         }
-        else if (treeInfo.treeState == TreeState.ENHANCER)
+        else if (currentTreeState == TreeState.ENHANCER)
         {
 
         }
-        else if (treeInfo.treeState == TreeState.WEAPON)
+        else if (currentTreeState == TreeState.WEAPON)
         {
 
         }
@@ -74,7 +87,7 @@ public class TreeHive : MonoBehaviour
 
     public void changeTreeSprite(int hiveLevel)
     {
-        if(treeInfo.treeState == TreeState.PRODUCTION)
+        if(currentTreeState == TreeState.PRODUCTION)
         {
             //Debug.Log((int)currentBeeColor + " Current bee color");
             spriteRenderer.sprite = sprites[(int)currentBeeColor * 4 + hiveLevel];

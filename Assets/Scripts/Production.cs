@@ -5,7 +5,7 @@ using UnityEngine;
 public class Production : MonoBehaviour
 {
     public TreeHive tree;
-    int hiveLevel;
+    //int hiveLevel;
     float productionWaitTime = 1.5f;
     int upgradeWaitTime = 2;
     int beeUpgradeAmount = 20;
@@ -24,8 +24,8 @@ public class Production : MonoBehaviour
         updateProductionTime();
         canUpgrade = true;
         tree.spriteRenderer.sprite = sprites[0];
-        hiveLevel = tree.treeInfo.hiveLevel;
-        beeUpgradeAmount *= hiveLevel;
+        //hiveLevel = tree.treeInfo.hiveLevel;
+        beeUpgradeAmount *= tree.currentHiveLevel;
         tree.currentBeeCapacity = beeUpgradeAmount;
         StartCoroutine(produceBees());
         //StartCoroutine(upgradeHive());
@@ -36,13 +36,18 @@ public class Production : MonoBehaviour
         {
             Destroy(this);
         }
-        if(tree.currentBeeCount >= tree.currentBeeCapacity * 0.5f)
+        if(tree.currentBeeCount >= tree.currentBeeCapacity * 0.5f && tree.currentHiveLevel < 4)
         {
             canUpgrade = true;
         }
         else
         {
             canUpgrade = false;
+        }
+        if (canUpgrade && tree.canUpgrade && Input.GetButtonDown("SpawnSmall"))
+        {
+            StartCoroutine(upgradeHive());
+            Debug.Log("Upgrade Hive");
         }
     }
 
@@ -52,11 +57,6 @@ public class Production : MonoBehaviour
         if(tree.currentBeeCount < tree.currentBeeCapacity)
         {
             tree.currentBeeCount++;
-        }
-        else if(canUpgrade && hiveLevel < 4)
-        {
-            StartCoroutine(upgradeHive());
-            Debug.Log("Upgrade Hive");
         }
         StartCoroutine(produceBees());
     }
@@ -68,13 +68,13 @@ public class Production : MonoBehaviour
         yield return new WaitForSeconds(upgradeWaitTime);
         updateProductionTime();
         tree.currentBeeCapacity += beeUpgradeAmount;
-        tree.changeTreeSprite(hiveLevel);
-        hiveLevel++;
+        tree.changeTreeSprite(tree.currentHiveLevel);
+        tree.currentHiveLevel++;
         canUpgrade = true;
     }
 
     void updateProductionTime()
     {
-        productionWaitTime = 1.5f - (float)(hiveLevel - 1) * 0.33f;
+        productionWaitTime = 1.5f - (float)(tree.currentHiveLevel - 1) * 0.33f;
     }
 }

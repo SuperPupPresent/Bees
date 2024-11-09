@@ -277,6 +277,90 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: ProductionHives_8
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 559269896f96c864cb705ec422eda826
+      internalID: -1470479175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProductionHives_9
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a6f2e362ba29b24783b7d003be31c76
+      internalID: -1618767361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProductionHives_10
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18fecb2f589c29b47b34c15e235c5f19
+      internalID: -1397370015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ProductionHives_11
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f3a8dc39db0de141850352dd8bcdab8
+      internalID: -55171684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -290,12 +374,16 @@ TextureImporter:
     nameFileIdTable:
       ProductionHives_0: -1362745770
       ProductionHives_1: 1537321824
+      ProductionHives_10: -1397370015
+      ProductionHives_11: -55171684
       ProductionHives_2: -1742443170
       ProductionHives_3: -129997120
       ProductionHives_4: -1857478926
       ProductionHives_5: -1416185872
       ProductionHives_6: -908132347
       ProductionHives_7: 1533917063
+      ProductionHives_8: -1470479175
+      ProductionHives_9: -1618767361
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
