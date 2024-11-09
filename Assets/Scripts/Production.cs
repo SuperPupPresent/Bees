@@ -21,6 +21,7 @@ public class Production : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        updateProductionTime();
         canUpgrade = true;
         tree.spriteRenderer.sprite = sprites[0];
         hiveLevel = tree.treeInfo.hiveLevel;
@@ -65,10 +66,15 @@ public class Production : MonoBehaviour
         tree.currentBeeCount -= (int)(tree.currentBeeCapacity * 0.5f);
         canUpgrade = false;
         yield return new WaitForSeconds(upgradeWaitTime);
+        updateProductionTime();
         tree.currentBeeCapacity += beeUpgradeAmount;
         tree.changeTreeSprite(hiveLevel);
-        //tree.spriteRenderer.sprite = sprites[hiveLevel];
         hiveLevel++;
         canUpgrade = true;
+    }
+
+    void updateProductionTime()
+    {
+        productionWaitTime = 1.5f - (float)(hiveLevel - 1) * 0.33f;
     }
 }
