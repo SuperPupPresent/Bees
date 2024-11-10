@@ -10,8 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: afa144e38cfff8b49bad73c9894f6d7d, type: 3}
-  m_Name: UninhabitedTree
+  m_Name: YellowProduction
   m_EditorClassIdentifier: 
-  beeCapacity: 10
-  startingBeeCount: 0
+  beeColor: 1
+  beeCapacity: 20
+  startingBeeCount: 10
+  hiveLevel: 1
   treeState: 0
+  startingBeeType: 1

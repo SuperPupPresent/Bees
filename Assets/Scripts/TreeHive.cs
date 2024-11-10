@@ -34,6 +34,7 @@ public class TreeHive : MonoBehaviour
         currentBeeCount = treeInfo.startingBeeCount;
         currentBeeCapacity = treeInfo.beeCapacity;
         currentTreeState = treeInfo.treeState;
+        changeTreeSprite(currentHiveLevel - 1);
     }
 
     private void Update()
@@ -90,7 +91,7 @@ public class TreeHive : MonoBehaviour
         if(currentTreeState == TreeState.PRODUCTION)
         {
             //Debug.Log((int)currentBeeColor + " Current bee color");
-            spriteRenderer.sprite = sprites[(int)currentBeeColor * 4 + hiveLevel];
+            spriteRenderer.sprite = sprites[(int)currentBeeColor * 5 + hiveLevel];
         }
     }
 }
