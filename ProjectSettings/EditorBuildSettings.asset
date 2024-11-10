@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Anthony.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/Menu.unity
+    guid: 8ed387c8792496748bc198a641f9e645
+  - enabled: 1
+    path: Assets/Scenes/Game.unity
+    guid: f20f09909eef073409d299ee042bac83
   m_configObjects: {}
