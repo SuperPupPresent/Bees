@@ -6,6 +6,7 @@ public class CursorMovement : MonoBehaviour
 {
     Rigidbody2D rb;
     [SerializeField] float moveSpeed;
+
     public BeeColor team;
     public GameEvent snapToHive;
 
@@ -15,7 +16,7 @@ public class CursorMovement : MonoBehaviour
     private bool isMoving;
     private bool isSnapped;
     private bool canSnap;
-    private bool fcanSnap;
+    private bool fSnapped;
     private bool focusMode;
     
     // Start is called before the first frame update
@@ -33,10 +34,9 @@ public class CursorMovement : MonoBehaviour
         rb.velocity = Player1Input * moveSpeed;
 
         //Debug.Log(canSnap);
-        if(Player1Input == new Vector2(0,0) && canSnap && (!isSnapped || (focusMode && !isSnapped)))
+        if(Player1Input == new Vector2(0,0) && canSnap && (!isSnapped || (focusMode && !fSnapped)))
         { //TODO: Use fsnap instead of normal is snapped
             canSnap = false;
-            //Debug.Log("not moving");
             isMoving = false;
             StartCoroutine(startSnap(focusMode));
             
@@ -44,7 +44,19 @@ public class CursorMovement : MonoBehaviour
         else if (Player1Input != new Vector2(0, 0))
         {
             isMoving = true;
-            isSnapped = false;
+           
+            if (!focusMode)
+            {
+                isSnapped = false;
+                selectedHive = null;
+            }
+
+            else
+            {
+                fSnapped = false;
+                focusedHive = null;
+            }
+            
         }
         
         if (Input.GetButton("Focus") && isSnapped)
@@ -55,6 +67,10 @@ public class CursorMovement : MonoBehaviour
         }
         else
         {
+            if (focusMode)
+            {
+                isSnapped = false;
+            }
             focusMode = false;
             gameObject.GetComponent<SpriteRenderer>().color = Color.red;
         }
@@ -69,14 +85,17 @@ public class CursorMovement : MonoBehaviour
     {
         if (isFocus)
         {
-            Debug.Log("FOCUS");
+            //Debug.Log("FOCUS");
             yield return (new WaitForSeconds(.5f));
             canSnap = true;
-            if (!isMoving && !isSnapped)
+            if (!isMoving && !fSnapped)
             {
-                Debug.Log("inside");
-                isSnapped = true;
-                snapToHive.Raise(this, BeeColor.Grey);
+                //Debug.Log("FOCUS INSIDE inside");
+                fSnapped = true;
+                if (focusMode)
+                {
+                    snapToHive.Raise(this, BeeColor.Grey);
+                }
             }
         }
 
