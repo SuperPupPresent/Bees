@@ -19,7 +19,11 @@ public class CursorMovement : MonoBehaviour
     private bool canSnap;
     private bool fSnapped;
     private bool focusMode;
-    
+
+    public string[] movementNames;
+    public Color originalColor;
+    public Color selectColor;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +35,7 @@ public class CursorMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 Player1Input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
+        Vector2 Player1Input = new Vector2(Input.GetAxisRaw(movementNames[0]), Input.GetAxisRaw(movementNames[1])).normalized;
         rb.velocity = Player1Input * moveSpeed;
 
         //Debug.Log(canSnap);
@@ -60,26 +64,26 @@ public class CursorMovement : MonoBehaviour
             
         }
         
-        if (Input.GetButton("Focus") && isSnapped)
+        if (Input.GetButton(movementNames[5]) && isSnapped)
         {
             focusMode = true;
-            gameObject.GetComponent<SpriteRenderer>().color = Color.blue;
+            gameObject.GetComponent<SpriteRenderer>().color = selectColor;
             if (fSnapped)
             {
                 List<object> spawnInfo = new List<object>();
                 spawnInfo.Add(selectedHive);
                 spawnInfo.Add(focusedHive);
-                if (Input.GetButtonDown("SpawnSmall"))
+                if (Input.GetButtonDown(movementNames[2]))
                 {
                     spawnInfo.Add(.10f);
                     sendBees.Raise(this, spawnInfo);
                 }
-                else if (Input.GetButtonDown("SpawnMedium"))
+                else if (Input.GetButtonDown(movementNames[3]))
                 {
                     spawnInfo.Add(.25f);
                     sendBees.Raise(this, spawnInfo);
                 }
-                else if (Input.GetButtonDown("SpawnBig"))
+                else if (Input.GetButtonDown(movementNames[4]))
                 {
                     spawnInfo.Add(.50f);
                     sendBees.Raise(this, spawnInfo);
@@ -94,7 +98,7 @@ public class CursorMovement : MonoBehaviour
                 isSnapped = false;
             }
             focusMode = false;
-            gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+            gameObject.GetComponent<SpriteRenderer>().color = originalColor;
         }
     }
 
@@ -123,7 +127,7 @@ public class CursorMovement : MonoBehaviour
             canSnap = true;
             if (!isMoving && !isSnapped)
             {
-                Debug.Log("inside");
+                //Debug.Log("inside");
                 isSnapped = true;
                 snapToHive.Raise(this, team);
             }

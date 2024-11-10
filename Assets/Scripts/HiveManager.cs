@@ -10,6 +10,9 @@ public class HiveManager : MonoBehaviour
     List<GameObject> pOneHives = new List<GameObject>();
     List<GameObject> pTwoHives = new List<GameObject>();
 
+    bool countingDown = false;
+    [SerializeField] GameEvent winGame;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,7 +37,14 @@ public class HiveManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (pOneHives.Count == 0 && !countingDown)
+        {
+            StartCoroutine(winCountdown(2));
+        }
+        else if(pTwoHives.Count == 0 && !countingDown)
+        {
+            StartCoroutine(winCountdown(1));
+        }
     }
 
     public void snapCursorToHive(Component sender, object data)
@@ -145,8 +155,9 @@ public class HiveManager : MonoBehaviour
 
     public void UpdateLists(Component sender, object data)
     {
-        if(sender is TreeHive && data is BeeColor)
+        if(true)
         {
+            Debug.Log("Hive taken and list updated");
             GameObject targetHive = sender.gameObject;
             BeeColor team = (BeeColor)data;
             neutralHives.Remove(targetHive);
@@ -170,5 +181,20 @@ public class HiveManager : MonoBehaviour
         float xDistance = Mathf.Pow((a.x - b.x), 2);
         float yDistance = Mathf.Pow((a.y - b.y), 2);
         return Mathf.Sqrt(xDistance + yDistance);
+    }
+
+    IEnumerator winCountdown(int playerNumber)
+    {
+        countingDown = true;
+        yield return new WaitForSeconds(2f);
+        if (pOneHives.Count == 0 || pTwoHives.Count == 0)
+        {
+            //Debug.Log("PLAYER WON!");
+            winGame.Raise(this, playerNumber);
+        }
+        else 
+        {
+            countingDown = false;
+        }
     }
 }

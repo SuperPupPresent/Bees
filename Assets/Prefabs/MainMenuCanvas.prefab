@@ -687,11 +687,11 @@ MonoBehaviour:
 
 
     While Targeting
-    use numbers 1, 2, 3, or 4 to send troops
+    use numbers 1, 2, 3 to send troops
 
 
-    While hovering over building hold
-    tab to bring up the upgrade menu
+    While hovering over building hold tab
+    to bring up the upgrade menu
 
 
     Upgrade with 1, 2, 3, or 4
@@ -1182,15 +1182,15 @@ MonoBehaviour:
 
 
     While
-    Targeting use numbers 7, 8, 9, or 0 to send troops
+    Targeting use numbers 7, 8, 9 to send troops
 
 
-    While hovering over
-    building hold back slash (\) to bring up the upgrade menu
+    While hovering over building
+    hold back slash (\) to bring up the upgrade menu
 
 
-    Upgrade with
-    7, 8, 9, or 0
+    Upgrade with 7, 8, 9,
+    or 0
 
 '
   m_isRightToLeft: 0

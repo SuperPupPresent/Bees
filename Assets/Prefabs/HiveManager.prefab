@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4754516297364823854}
   - component: {fileID: 6642677886184895213}
   - component: {fileID: 2232143858474816150}
+  - component: {fileID: 3454630344789613030}
   m_Layer: 0
   m_Name: HiveManager
   m_TagString: Untagged
@@ -45,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a469aac1d4d3e0243807091c5cedafe8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  winGame: {fileID: 11400000, guid: 88fa554a3912393498b43b7ad2e901b2, type: 2}
 --- !u!114 &2232143858474816150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64,6 +66,34 @@ MonoBehaviour:
       - m_Target: {fileID: 6642677886184895213}
         m_TargetAssemblyTypeName: HiveManager, Assembly-CSharp
         m_MethodName: snapCursorToHive
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3454630344789613030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5531189697017031465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66b4d981a5f9fc946a8b2134473674ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 0f7fa8a7d0cc1844f8d8d450067b6301, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6642677886184895213}
+        m_TargetAssemblyTypeName: HiveManager, Assembly-CSharp
+        m_MethodName: UpdateLists
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.98205996, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -104,6 +104,15 @@ MonoBehaviour:
   sendBees: {fileID: 11400000, guid: 07fa0fd025172804eb3e0c939cc0a542, type: 2}
   selectedHive: {fileID: 0}
   focusedHive: {fileID: 0}
+  movementNames:
+  - Horizontal
+  - Vertical
+  - SpawnSmall
+  - SpawnMedium
+  - SpawnBig
+  - Focus
+  originalColor: {r: 0.99045753, g: 1, b: 0, a: 1}
+  selectColor: {r: 0.4672153, g: 0.4943396, b: 0, a: 1}
 --- !u!50 &8191516687080310446
 Rigidbody2D:
   serializedVersion: 4

@@ -26,6 +26,8 @@ public class TreeHive : MonoBehaviour
 
     public bool canUpgrade = false;
 
+    string upgradeButton = "UpgradeMenu";
+
     private void Awake()
     {
         treeStateChanged();
@@ -37,13 +39,21 @@ public class TreeHive : MonoBehaviour
         currentBeeCount = treeInfo.startingBeeCount;
         currentBeeCapacity = treeInfo.beeCapacity;
         currentTreeState = treeInfo.treeState;
-        changeTreeSprite(currentHiveLevel - 1);
+        changeTreeSprite(currentHiveLevel);
     }
 
     private void Update()
     {
         beeCountUI.text = "" + currentBeeCount;
-        if (Input.GetButton("UpgradeMenu") && currentlySelected) // && playerIsHovering
+        if(currentBeeColor == BeeColor.Yellow)
+        {
+            upgradeButton = "UpgradeMenu";
+        }
+        else if (currentBeeColor == BeeColor.Orange)
+        {
+            upgradeButton = "UpgradeMenu2";
+        }
+        if (Input.GetButton(upgradeButton) && currentlySelected) // && playerIsHovering
         {
             upgradeMenu.SetActive(true);
             canUpgrade = true;
@@ -55,18 +65,18 @@ public class TreeHive : MonoBehaviour
         }
     }
 
-    //Call this function when a bee attacks
-    public void beeAttacks(PlayerInfoSO playerInfo)
-    {
-        currentBeeCount -=  playerInfo.level;
-        if(currentBeeCount < 0)
-        {
-            currentBeeColor = playerInfo.beeColor;
-            currentBeeCount *= -1;
-            spriteRenderer.color = Color.red;
-            //TODO change sprite color
-        }
-    }
+    ////Call this function when a bee attacks
+    //public void beeAttacks(PlayerInfoSO playerInfo)
+    //{
+    //    currentBeeCount -=  playerInfo.level;
+    //    if(currentBeeCount < 0)
+    //    {
+    //        currentBeeColor = playerInfo.beeColor;
+    //        currentBeeCount *= -1;
+    //        spriteRenderer.color = Color.red;
+    //        //TODO change sprite color
+    //    }
+    //}
     public void treeStateChanged()
     {
         if (currentTreeState == TreeState.PRODUCTION)
@@ -94,7 +104,7 @@ public class TreeHive : MonoBehaviour
         if(currentTreeState == TreeState.PRODUCTION)
         {
             //Debug.Log((int)currentBeeColor + " Current bee color");
-            spriteRenderer.sprite = sprites[(int)currentBeeColor * 5 + hiveLevel];
+            spriteRenderer.sprite = sprites[(int)currentBeeColor * 5 + hiveLevel - 1];
         }
     }
 
@@ -120,14 +130,14 @@ public class TreeHive : MonoBehaviour
 
     public void setSelected(Component sender, object data)
     {
-        if(sender is CursorMovement)
+        if(sender is CursorMovement && (BeeColor)data == currentBeeColor)
         {
             CursorMovement cursorControler = (CursorMovement)sender;
+
             if(cursorControler.selectedHive == gameObject)
             {
                 currentlySelected = true;
             }
-
             else
             {
                 currentlySelected = false;
@@ -147,6 +157,10 @@ public class TreeHive : MonoBehaviour
             bee.GetComponent<Bee>().targetScript = targetHive.GetComponent<TreeHive>();
 
             Vector2 direction = new Vector2(targetHive.transform.position.x - bee.transform.position.x, targetHive.transform.position.y - bee.transform.position.y);
+            if(direction.x < 0)
+            {
+                bee.GetComponent<SpriteRenderer>().flipX = true;
+            }
             float magnitude = Mathf.Sqrt(direction.magnitude);
             float speed = .5f;
             direction.x = speed * (direction.x / magnitude);
