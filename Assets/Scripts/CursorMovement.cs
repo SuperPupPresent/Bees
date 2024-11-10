@@ -9,6 +9,7 @@ public class CursorMovement : MonoBehaviour
 
     public BeeColor team;
     public GameEvent snapToHive;
+    public GameEvent sendBees;
 
     public GameObject selectedHive;
     public GameObject focusedHive;
@@ -63,6 +64,27 @@ public class CursorMovement : MonoBehaviour
         {
             focusMode = true;
             gameObject.GetComponent<SpriteRenderer>().color = Color.blue;
+            if (fSnapped)
+            {
+                List<object> spawnInfo = new List<object>();
+                spawnInfo.Add(selectedHive);
+                spawnInfo.Add(focusedHive);
+                if (Input.GetButtonDown("SpawnSmall"))
+                {
+                    spawnInfo.Add(.10f);
+                    sendBees.Raise(this, spawnInfo);
+                }
+                else if (Input.GetButtonDown("SpawnMedium"))
+                {
+                    spawnInfo.Add(.25f);
+                    sendBees.Raise(this, spawnInfo);
+                }
+                else if (Input.GetButtonDown("SpawnBig"))
+                {
+                    spawnInfo.Add(.50f);
+                    sendBees.Raise(this, spawnInfo);
+                }
+            }
             
         }
         else
@@ -76,17 +98,12 @@ public class CursorMovement : MonoBehaviour
         }
     }
 
-    void SpawnBees()
-    {
-
-    }
-
     IEnumerator startSnap(bool isFocus)
     {
         if (isFocus)
         {
             //Debug.Log("FOCUS");
-            yield return (new WaitForSeconds(.5f));
+            yield return (new WaitForSeconds(.25f));
             canSnap = true;
             if (!isMoving && !fSnapped)
             {
@@ -102,7 +119,7 @@ public class CursorMovement : MonoBehaviour
         else
         {
             //Debug.Log("starting Snap");
-            yield return (new WaitForSeconds(.5f));
+            yield return (new WaitForSeconds(.25f));
             canSnap = true;
             if (!isMoving && !isSnapped)
             {
@@ -113,8 +130,6 @@ public class CursorMovement : MonoBehaviour
             // Debug.Log("finish snap");
         }
     }
-
-
 
     
 }

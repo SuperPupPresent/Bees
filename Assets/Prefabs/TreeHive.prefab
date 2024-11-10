@@ -470,6 +470,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7584055549721549125}
   - component: {fileID: 6142919953891397806}
+  - component: {fileID: 2404946292860757377}
+  - component: {fileID: 2379470645041056997}
   m_Layer: 0
   m_Name: TreeHive
   m_TagString: Untagged
@@ -513,6 +515,7 @@ MonoBehaviour:
   enhancerPrefab: {fileID: 0}
   weaponPrefab: {fileID: 0}
   upgradeMenu: {fileID: 2402185956980095989}
+  beePrefab: {fileID: 1205668080080289969, guid: 1f26632024f2d5b4f84614ab3693432f, type: 3}
   spriteRenderer: {fileID: 3943896273548355513}
   beeCountUI: {fileID: 1363494640107631281}
   currentBeeCount: 0
@@ -536,7 +539,64 @@ MonoBehaviour:
   - {fileID: -1397370015, guid: a9b5608fd3df59b478d3b9ccf9ef43b2, type: 3}
   - {fileID: -55171684, guid: a9b5608fd3df59b478d3b9ccf9ef43b2, type: 3}
   - {fileID: 1795089766, guid: 09dfff45f0bca6f48b0b2f4f82ef8c52, type: 3}
+  currentlySelected: 0
   canUpgrade: 0
+--- !u!114 &2404946292860757377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7958923785696467498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66b4d981a5f9fc946a8b2134473674ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 07fa0fd025172804eb3e0c939cc0a542, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6142919953891397806}
+        m_TargetAssemblyTypeName: TreeHive, Assembly-CSharp
+        m_MethodName: sendBees
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2379470645041056997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7958923785696467498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66b4d981a5f9fc946a8b2134473674ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 90ce04ecc90ae8e45b1bfb26570a828c, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6142919953891397806}
+        m_TargetAssemblyTypeName: TreeHive, Assembly-CSharp
+        m_MethodName: setSelected
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &706743118676469421
 PrefabInstance:
   m_ObjectHideFlags: 0

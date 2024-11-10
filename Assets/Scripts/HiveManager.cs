@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -139,6 +140,28 @@ public class HiveManager : MonoBehaviour
                 }
             }
             
+        }
+    }
+
+    public void UpdateLists(Component sender, object data)
+    {
+        if(sender is TreeHive && data is BeeColor)
+        {
+            GameObject targetHive = sender.gameObject;
+            BeeColor team = (BeeColor)data;
+            neutralHives.Remove(targetHive);
+            pOneHives.Remove(targetHive);
+            pTwoHives.Remove(targetHive);
+
+            if(team == BeeColor.Yellow)
+            {
+                pOneHives.Add(targetHive);
+            }
+            
+            else if(team == BeeColor.Orange) 
+            {
+                pTwoHives.Add(targetHive);
+            }
         }
     }
 
