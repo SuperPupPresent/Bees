@@ -34,6 +34,11 @@ public class Bee : MonoBehaviour
                 {
                     targetScript.currentBeeCount *= -1;
                     targetScript.currentBeeColor = team;
+                    if(targetScript.currentHiveLevel != 1)
+                    {
+                        targetScript.currentHiveLevel--;
+                    }
+                    targetScript.currentBeeCapacity = 20 * targetScript.currentHiveLevel;
                     targetScript.changeTreeSprite(targetScript.currentHiveLevel);
                     updateLists.Raise(targetScript, team);
                 }
