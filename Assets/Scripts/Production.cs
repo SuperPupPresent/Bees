@@ -23,7 +23,7 @@ public class Production : MonoBehaviour
     {
         updateProductionTime();
         canUpgrade = true;
-        tree.spriteRenderer.sprite = sprites[0];
+        //tree.spriteRenderer.sprite = sprites[0];
         //hiveLevel = tree.treeInfo.hiveLevel;
         beeUpgradeAmount *= tree.currentHiveLevel;
         tree.currentBeeCapacity = beeUpgradeAmount;
