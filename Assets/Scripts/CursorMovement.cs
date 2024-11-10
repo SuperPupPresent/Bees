@@ -53,12 +53,20 @@ public class CursorMovement : MonoBehaviour
             if (!focusMode)
             {
                 isSnapped = false;
+                if (selectedHive != null)
+                {
+                    selectedHive.GetComponent<TreeHive>().currentlySelected = false;
+                }
                 selectedHive = null;
             }
 
             else
             {
                 fSnapped = false;
+                if (selectedHive != null)
+                {
+                    selectedHive.GetComponent<TreeHive>().currentlySelected = false;
+                }
                 focusedHive = null;
             }
             
@@ -130,6 +138,7 @@ public class CursorMovement : MonoBehaviour
                 //Debug.Log("inside");
                 isSnapped = true;
                 snapToHive.Raise(this, team);
+                selectedHive.GetComponent<TreeHive>().currentlySelected = true;
             }
             // Debug.Log("finish snap");
         }
