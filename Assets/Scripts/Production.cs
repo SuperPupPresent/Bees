@@ -11,6 +11,7 @@ public class Production : MonoBehaviour
     int beeUpgradeAmount = 20;
     [SerializeField] Sprite[] sprites;
     bool canUpgrade;
+    public string upgradeButton;
     //public Production(TreeHive t)
     //{
     //    tree = t;
@@ -44,10 +45,18 @@ public class Production : MonoBehaviour
         {
             canUpgrade = false;
         }
-        if (canUpgrade && tree.canUpgrade && Input.GetButtonDown("SpawnSmall"))
+        if (canUpgrade && tree.canUpgrade && Input.GetButtonDown(upgradeButton))
         {
             StartCoroutine(upgradeHive());
             Debug.Log("Upgrade Hive");
+        }
+        if (tree.currentBeeColor == BeeColor.Yellow)
+        {
+            upgradeButton = "SpawnSmall";
+        }
+        else if (tree.currentBeeColor == BeeColor.Orange)
+        {
+            upgradeButton = "SpawnSmall2";
         }
     }
 
