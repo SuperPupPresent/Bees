@@ -9,6 +9,7 @@ public class CursorMovement : MonoBehaviour
 
     public BeeColor team;
     public GameEvent snapToHive;
+    public GameEvent sendBees;
 
     public GameObject selectedHive;
     public GameObject focusedHive;
@@ -63,6 +64,27 @@ public class CursorMovement : MonoBehaviour
         {
             focusMode = true;
             gameObject.GetComponent<SpriteRenderer>().color = Color.blue;
+            if (fSnapped)
+            {
+                List<object> spawnInfo = new List<object>();
+                spawnInfo.Add(selectedHive);
+                spawnInfo.Add(focusedHive);
+                if (Input.GetButtonDown("SpawnSmall"))
+                {
+                    spawnInfo.Add(.10f);
+                    sendBees.Raise(this, spawnInfo);
+                }
+                else if (Input.GetButtonDown("SpawnMedium"))
+                {
+                    spawnInfo.Add(.25f);
+                    sendBees.Raise(this, spawnInfo);
+                }
+                else if (Input.GetButtonDown("SpawnBig"))
+                {
+                    spawnInfo.Add(.50f);
+                    sendBees.Raise(this, spawnInfo);
+                }
+            }
             
         }
         else
@@ -74,11 +96,6 @@ public class CursorMovement : MonoBehaviour
             focusMode = false;
             gameObject.GetComponent<SpriteRenderer>().color = Color.red;
         }
-    }
-
-    void SpawnBees()
-    {
-
     }
 
     IEnumerator startSnap(bool isFocus)
@@ -113,8 +130,6 @@ public class CursorMovement : MonoBehaviour
             // Debug.Log("finish snap");
         }
     }
-
-
 
     
 }

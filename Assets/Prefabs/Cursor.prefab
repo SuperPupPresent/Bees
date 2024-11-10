@@ -101,6 +101,9 @@ MonoBehaviour:
   moveSpeed: 10
   team: 1
   snapToHive: {fileID: 11400000, guid: 90ce04ecc90ae8e45b1bfb26570a828c, type: 2}
+  sendBees: {fileID: 11400000, guid: 07fa0fd025172804eb3e0c939cc0a542, type: 2}
+  selectedHive: {fileID: 0}
+  focusedHive: {fileID: 0}
 --- !u!50 &8191516687080310446
 Rigidbody2D:
   serializedVersion: 4

@@ -6,16 +6,40 @@ using UnityEngine.UIElements;
 
 public class Bee : MonoBehaviour
 {
-    Transform targetPosition;
-    // Start is called before the first frame update
-    void Start()
+    public Transform targetPosition;
+    public Collider2D targetCollider;
+    public BeeColor team;
+    public Rigidbody rb;
+    public TreeHive targetScript;
+    public GameEvent updateLists;
+
+    private void Start()
     {
-        //transform.position = Vector2.MoveTowards(transform.position, targetPosition.position, 2);
+        rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if(collision == targetCollider)
+        {
+            Debug.Log(targetScript.currentBeeColor);
+            if (targetScript.currentBeeColor == team)
+            {
+                targetScript.currentBeeCount++;
+            }
+            else
+            {
+                targetScript.currentBeeCount--;
+                if(targetScript.currentBeeCount < 0)
+                {
+                    targetScript.currentBeeCount *= -1;
+                    targetScript.currentBeeColor = team;
+                    targetScript.changeTreeSprite(targetScript.currentHiveLevel);
+                    updateLists.Raise(targetScript, team);
+                }
+            }
+            Destroy(gameObject);
+        }
     }
+
 }
