@@ -64,6 +64,7 @@ public class HiveManager : MonoBehaviour
                 {
                    // Debug.Log("Snapped!");
                     Cursor.position = closestHive.transform.position;
+                    Cursor.gameObject.GetComponent<CursorMovement>().selectedHive = closestHive;
                 }
             }
 
@@ -87,21 +88,45 @@ public class HiveManager : MonoBehaviour
                 {
                     // Debug.Log("Snapped!");
                     Cursor.position = closestHive.transform.position;
+                    Cursor.gameObject.GetComponent<CursorMovement>().selectedHive = closestHive;
                 }
             }
 
             else
             {
                 GameObject closestHive = null;
+                GameObject currentHive = Cursor.gameObject.GetComponent<CursorMovement>().selectedHive;
                 float closestDistance = -1f;
 
                 for (int i = 0; i < pTwoHives.Count; i++)
                 {
                     float currentDistance = getDistance(Cursor.position, pTwoHives[i].transform.position);
                     //  Debug.Log(currentDistance);
-                    if (closestDistance > currentDistance || closestHive == null)
+                    if ((closestDistance > currentDistance || closestHive == null) && currentHive != pTwoHives[i])
                     {
                         closestHive = pTwoHives[i];
+                        closestDistance = currentDistance;
+                    }
+                }
+
+                for (int i = 0; i < pOneHives.Count; i++)
+                {
+                    float currentDistance = getDistance(Cursor.position, pOneHives[i].transform.position);
+                    //  Debug.Log(currentDistance);
+                    if ((closestDistance > currentDistance || closestHive == null) && currentHive != pOneHives[i])
+                    {
+                        closestHive = pOneHives[i];
+                        closestDistance = currentDistance;
+                    }
+                }
+
+                for (int i = 0; i < neutralHives.Count; i++)
+                {
+                    float currentDistance = getDistance(Cursor.position, neutralHives[i].transform.position);
+                    //  Debug.Log(currentDistance);
+                    if (closestDistance > currentDistance || closestHive == null)
+                    {
+                        closestHive = neutralHives[i];
                         closestDistance = currentDistance;
                     }
                 }
@@ -110,6 +135,7 @@ public class HiveManager : MonoBehaviour
                 {
                     // Debug.Log("Snapped!");
                     Cursor.position = closestHive.transform.position;
+                    Cursor.gameObject.GetComponent<CursorMovement>().focusedHive = closestHive;
                 }
             }
             
