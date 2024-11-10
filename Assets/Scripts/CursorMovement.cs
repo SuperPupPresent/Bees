@@ -86,7 +86,7 @@ public class CursorMovement : MonoBehaviour
         if (isFocus)
         {
             //Debug.Log("FOCUS");
-            yield return (new WaitForSeconds(.5f));
+            yield return (new WaitForSeconds(.25f));
             canSnap = true;
             if (!isMoving && !fSnapped)
             {
@@ -102,7 +102,7 @@ public class CursorMovement : MonoBehaviour
         else
         {
             //Debug.Log("starting Snap");
-            yield return (new WaitForSeconds(.5f));
+            yield return (new WaitForSeconds(.25f));
             canSnap = true;
             if (!isMoving && !isSnapped)
             {
